@@ -1,0 +1,386 @@
+#root {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+@font-face {
+  font-family: myCustomFont;
+  src: url(public/fonts/nightcore/nightcore_demo.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: myCustomFont2;
+  src: url(public/fonts/haunted_hill/HauntedHillRegular-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+::selection {
+  background: none;
+  color: rgba(195, 0, 0, 1);
+}
+
+@media (max-width: 769px) {
+  .my-header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .inventory {
+    grid-column: span 2;
+  }
+
+  h2 {
+    margin: 2rem 1rem;
+    text-align: center;
+  }
+
+  .my-choices {
+    flex-direction: column; /* stack buttons */
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .my-button {
+    width: 90%; /* full width buttons */
+  }
+
+}
+
+html, body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top;
+  overflow: hidden;
+  background-color: #0a090f;
+}
+
+.title {
+  text-align: center;
+  font-style: italic;
+  color: rgb(124, 0, 0);
+  text-shadow: 1rem 1rem rgb(0, 0, 0);
+  line-height: 0.9;
+  margin: 3rem 0;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+
+.title .line {
+  display: block;
+  font-family: myCustomFont !important;
+}
+
+.title .line:first-child {
+  font-size: clamp(4rem, 25vh, 15vw);
+  letter-spacing: 2rem;
+}
+
+.title .line:last-child {
+  font-size: clamp(3rem, 20vh, 13vw);
+  letter-spacing: 2rem;
+}
+
+.bg-image {
+  position: relative;
+  min-height: 100vh;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/pictures/scary_forest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.bg-asset {
+  position: relative;
+  min-height: 100vh;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-asset::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: myCustomFont;
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  color: rgb(124, 0, 0);
+  background-color: #0a090f;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgb(124, 0, 0);
+  letter-spacing: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #0a090f;
+  color: rgba(195, 0, 0, 1);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(195, 0, 0, 1);
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus:active {
+  outline: none !important;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(195, 0, 0, 1) !important;
+  background-color: rgba(195, 0, 0, 1) !important;
+  color: #0a090f !important;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.my-input {
+  color: rgba(195, 0, 0, 1);
+  font-size: 2rem;
+  width: 50vh;
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  border: 0.2rem ridge rgb(49, 0, 0);
+  border-radius: 0.5rem;
+  background-color: #0a090f;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgb(124, 0, 0);
+}
+
+.my-input:focus {
+  color: rgba(195, 0, 0, 1);
+  font-size: 2rem;
+  width: 50vh;
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  border: 0.2rem ridge rgb(124, 0, 0);
+  border-radius: 0.5rem;
+  background-color: #0a090f;
+  outline: none;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(195, 0, 0, 1);
+}
+
+.my-input::selection{
+  background: rgba(195, 0, 0, 1);
+  color: #0a090f;
+}
+
+.my-input:-webkit-autofill,
+.my-input:-webkit-autofill:hover,
+.my-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(195, 0, 0, 1) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0a090f inset !important;
+  box-shadow: 0 0 0px 1000px #0a090f inset !important;
+  border: 0.2rem ridge rgb(124, 0, 0) !important;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-height: auto;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: myCustomFont;
+  color: rgb(124, 0, 0);
+  font-size: 3rem;
+}
+
+.form-row label {
+  text-shadow: 0.5rem 0.5rem rgb(0, 0, 0);
+  font-size: 3rem;
+  color: rgb(124, 0, 0);
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.my-form {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+h1{
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-family: myCustomFont2;
+  color: rgb(124, 0, 0);
+  letter-spacing: 0.5rem;
+}
+
+h2{
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-family: myCustomFont2;
+  letter-spacing: 0.2rem;
+  color: rgba(195, 0, 0, 1);
+  text-shadow: 0.2rem 0.2rem rgb(0, 0, 0);
+  margin: clamp(8rem, 12vh, 10rem) auto;
+  max-width: 70ch;
+  line-height: 1.5;
+}
+
+.my-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr auto;
+  align-items: center;
+  background-color: #0a090f;
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 2rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0.5rem 0.5rem rgb(0, 0, 0);    
+  z-index: 2;
+  border-radius: 0 0 20px 20px;
+  gap: 2rem;
+}
+
+.header-item h1 {
+  font-size: 2rem;
+  font-family: myCustomFont2;
+  margin: 0;
+}
+
+.player-name {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.inventory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: myCustomFont2;
+  background-color: #0a090f;
+  top: 0;
+  margin: 0rem 10rem;
+  text-shadow: 0.5rem 0.5rem rgb(0, 0, 0);    
+  z-index: 2;
+  border-radius: 0 0 20px 20px;
+  letter-spacing: 0.2rem;
+}
+
+.my-menu {
+  padding: 2rem 2rem;
+}
+
+.my-choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 80ch;
+  font-family: myCustomFont2;
+}
+
+.my-button {
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(1rem, 4vw, 3rem)!important;
+  color: rgb(124, 0, 0) !important;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgb(124, 0, 0);
+  background-color: #0a090f;
+  font-weight: bold !important;
+  font-size: clamp(1rem, 2vw, 1.5rem) !important;
+  letter-spacing: 0.2rem;
+}
+
+.my-button:hover {
+  color: rgba(195, 0, 0, 1) !important;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(195, 0, 0, 1) !important;
+  background-color: #0a090f !important;
+}
+
+.reset-button {
+   display: flex;
+   justify-content: right;
+   padding: 8rem 6rem;
+}
+
+@keyframes shake {
+  0% {transform: translate(0px, 0px);}
+  20% {transform: translate(-10px, 0px);}
+  40% {transform: translate(10px, -10px);}
+  60% {transform: translate(-10px, 0px);}
+  80% {transform: translate(10px, 10px);}
+  100% {transform: translate(10px, 0px);}
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes flash-red {
+  0% {background-color: rgba(255, 0, 0, 0.5);}
+  20% {background-color: rgba(255, 0, 0, 0);}
+  40% {background-color: rgba(255, 0, 0, 0.5);}
+  60% {background-color: rgba(255, 0, 0, 0);}
+  80% {background-color: rgba(255, 0, 0, 0.5);}
+  100% {background-color: rgba(255, 0, 0, 0);}
+}
+
+.flash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: flash-red 0.4s ease;
+  z-index: 10;
+}
+
+.ending-details .my-header{
+  width: fit-content;
+  margin: 2rem auto;
+  position: static;
+  border-radius: 20px;
+}

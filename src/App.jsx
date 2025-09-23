@@ -1,76 +1,56 @@
-import { usePWA } from './hooks/usePWA';
+import { useState } from 'react';
+import { GameProvider } from './contexts/gameContext';
+import Game from './components/game';
+import './App.css';
 
 export default function App() {
-  const { isInstallable, installApp, isOnline } = usePWA();
+  const [started, setStarted] = useState(false);
+  const [name, setName] = useState("");
+
+  // Prevents player from proceeding to the game without a name
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.trim() === "") {
+      alert("Please enter your name first!");
+      return;
+    }
+
+    setStarted(true);
+  }
+
+  if (started) {
+    // Starts the game after player submits their name
+    return (
+      <GameProvider playerName={name}>
+        <Game/>
+      </GameProvider>
+    )
+  }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        fontFamily: "sans-serif",
-        background: "#f9fafb",
-        color: "#111",
-        textAlign: "center",
-        padding: "2rem",
-      }}
-    >
-      <h1
-        style={{
-          fontSize: "2.5rem",
-          marginBottom: "0.5rem",
-          fontWeight: 600,
-        }}
-      >
-        Welcome to{" "}
-        <span style={{ color: "#2563eb" }}>aswang-hunters</span> 🚀
-      </h1>
-      <p style={{ fontSize: "1.1rem", color: "#555", marginBottom: "2rem" }}>
-        Your PWA is ready. Start building amazing things!
-      </p>
-      
-      <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
-        <div style={{ 
-          padding: "0.5rem 1rem", 
-          background: "#2563eb", 
-          color: "white", 
-          borderRadius: "0.5rem",
-          fontSize: "0.9rem"
-        }}>
-          📱 PWA Enabled
+    <>
+    {/* Start Screen: */}
+      {/* Title */}
+      <div className='bg-image' style={{minHeight: '100vh'}}>
+        <h1 className='title'>
+          <span className='line'>Aswang</span>
+          <span className='line'>(Hunters)</span>
+        </h1>
+
+        {/* Name Input */}
+        <div className="form-container">
+          <form className="my-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <label htmlFor="playerName">Name</label>
+              <input type="text" maxLength="10" className="form-control my-input" id="playerName" required value={name} onChange={(e) => setName(e.target.value.toUpperCase())} style={{textTransform: "uppercase"}}/>
+            </div>
+
+            <div className="btn-wrapper">
+              <button type="submit" className="btn btn-primary mb-3">Start</button>
+            </div>
+          </form>
         </div>
-        
-        <div style={{ 
-          padding: "0.5rem 1rem", 
-          background: isOnline ? "#10b981" : "#ef4444", 
-          color: "white", 
-          borderRadius: "0.5rem",
-          fontSize: "0.9rem"
-        }}>
-          {isOnline ? "🟢 Online" : "🔴 Offline"}
-        </div>
-        
-        {isInstallable && (
-          <button
-            onClick={installApp}
-            style={{
-              padding: "0.75rem 1.5rem",
-              background: "#2563eb",
-              color: "white",
-              border: "none",
-              borderRadius: "0.5rem",
-              cursor: "pointer",
-              fontSize: "1rem",
-              fontWeight: "500"
-            }}
-          >
-            📲 Install App
-          </button>
-        )}
       </div>
-    </div>
+    </>
   );
 }
