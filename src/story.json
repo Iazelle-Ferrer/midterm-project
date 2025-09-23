@@ -16,7 +16,7 @@
   "askAlbularyo": {
     "text": "'It has wings like a bat and separates at the waist,' the old healer whispers, handing you a rough pouch. 'Take this salt. The Manananggal despises it.' You've gained Asin.",
     "background": "/pictures/edge-of-town.jpg",
-    "onArrive": { "addItem": "Asin" },
+    "onArrive": { "addItem": "🧂" },
     "choices": [
       {
         "text": "Thank him and head to the old church where it was last seen.",
@@ -27,7 +27,7 @@
   "askCaptain": {
     "text": "'My best men have vanished,' the captain says grimly, handing you a braid of garlic. 'We believe it's a Wakwak, a different kind of horror. This might keep it at bay.' You've gained Bawang.",
     "background": "/pictures/town-hall.jpg",
-    "onArrive": { "addItem": "Bawang" },
+    "onArrive": { "addItem": "🧄" },
     "choices": [
       {
         "text": "Nod grimly and head to the old church where it was last seen.",
@@ -56,7 +56,7 @@
       {
         "text": "Thrust the garlic braid at it!",
         "to": "useGarlicOnWakwak",
-        "requires": "Bawang"
+        "requires": "🧄"
       },
       {
         "text": "You have no garlic! Fight it with your bolo!",
@@ -65,14 +65,14 @@
       {
         "text": "This isn't a Manananggal. The salt is useless here.",
         "to": "fightWakwakNoGarlic",
-        "requires": "Asin"
+        "requires": "🧂"
       }
     ]
   },
   "useGarlicOnWakwak": {
     "text": "The Wakwak recoils from the pungent garlic, giving you an opening! You slash with your bolo, wounding its wing. It shrieks and flies off into the night, dropping something shiny.",
     "background": "/pictures/wakwak.jpg",
-    "onArrive": { "addItem": "Agimat" },
+    "onArrive": { "addItem": "💎" },
     "choices": [
       {
         "text": "You found an Agimat! Continue to the rice fields.",
@@ -94,7 +94,7 @@
   "altar": {
     "text": "The altar is overturned. Behind it, you find a small, intricately carved amulet throbbing with a faint warmth. It feels protective. You've found an Agimat.",
     "background": "/pictures/altar.jpg",
-    "onArrive": { "addItem": "Agimat" },
+    "onArrive": { "addItem": "💎" },
     "choices": [
       {
         "text": "With the amulet secured, you head towards the rice fields.",
@@ -123,12 +123,12 @@
       {
         "text": "You fell for the oldest trick in the book! (Lose 25 HP)",
         "to": "tiyanakDamage",
-        "hideIf": "Agimat"
+        "hideIf": "💎"
       },
       {
         "text": "Your Agimat glows, repelling the creature before it can bite!",
         "to": "baleteTree_approach",
-        "requires": "Agimat"
+        "requires": "💎"
       }
     ]
   },
@@ -175,7 +175,7 @@
       {
         "text": "Pour the holy salt into the torso!",
         "to": "goodEnding",
-        "requires": "Asin"
+        "requires": "🧂"
       },
       {
         "text": "You don't have salt! Hack at it with your bolo!",

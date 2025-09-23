@@ -61,15 +61,24 @@ html, body {
   background-color: #0a090f;
 }
 
+@keyframes flicker {
+  0%, 80%, 90% {
+    color: rgb(124, 0, 0);
+  }
+  10%, 20%, 30%, 40%, 50%, 60%, 70%, 85%, 100% {
+    color: rgba(195, 0, 0, 1);
+  }
+}
+
 .title {
   text-align: center;
   font-style: italic;
-  color: rgb(124, 0, 0);
   text-shadow: 1rem 1rem rgb(0, 0, 0);
   line-height: 0.9;
   margin: 3rem 0;
   padding-top: 5rem;
   padding-bottom: 1rem;
+  animation: flicker 2s infinite alternate;
 }
 
 .title .line {
@@ -272,7 +281,7 @@ h2{
   top: 0;
   padding: 0.5rem 2rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  text-shadow: 0.5rem 0.5rem rgb(0, 0, 0);    
+  text-shadow: 0.3rem 0.3rem rgb(0, 0, 0);    
   z-index: 2;
   border-radius: 0 0 20px 20px;
   gap: 2rem;
@@ -285,8 +294,12 @@ h2{
 }
 
 .player-name {
-  font-size: 3rem;
+  font-size: 4rem !important;
   text-transform: uppercase;
+}
+
+.player-inventory {
+  font-size: 1.5rem !important;
 }
 
 .inventory {

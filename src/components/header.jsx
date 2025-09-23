@@ -8,7 +8,7 @@ export default function Header() {
         <div className='my-header'>
           {/* Name */}
           <div className='header-item'>
-            <h1 className="player-name">{playerName}</h1>
+            <h1 className='player-name'>{playerName}</h1>
           </div>
 
           {/* Health */}
@@ -20,7 +20,7 @@ export default function Header() {
             <div className='header-item inventory'>
               <h1>Inventory:</h1>
               <div>
-                <h1>Bolo, {inventory.join(", ")}</h1>
+                <h1 className='player-inventory'>🔪{inventory}</h1>
               </div>
             </div>
         </div>
