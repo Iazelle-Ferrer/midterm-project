@@ -246,6 +246,15 @@ html, body {
   color: rgb(124, 0, 0);
 }
 
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
 .my-form {
   width: 100%;
   max-width: 600px;
