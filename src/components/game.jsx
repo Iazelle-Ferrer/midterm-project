@@ -45,7 +45,9 @@ export default function Game() {
         {/* Game Screen */}
         <Header/>
         {/* Game Text */}
-        <h2>{node.text}</h2>
+        <div className='story-text'>
+          <h2>{node.text}</h2>
+        </div>
         <Choices/>
       </div>
     </>

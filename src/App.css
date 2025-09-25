@@ -50,6 +50,11 @@
     width: 90%; /* full width buttons */
   }
 
+  .form-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
 }
 
 html, body {
@@ -241,13 +246,6 @@ html, body {
   color: rgb(124, 0, 0);
 }
 
-@media (min-width: 768px) {
-  .form-row {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
 .my-form {
   width: 100%;
   max-width: 600px;
@@ -309,21 +307,17 @@ h2{
 }
 
 .my-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: myCustomFont2;
-  background-color: #0a090f;
-  top: 0;
-  margin: 0rem 10rem;
-  text-shadow: 0.5rem 0.5rem rgb(0, 0, 0);    
-  z-index: 2;
-  border-radius: 0 0 20px 20px;
-  letter-spacing: 0.2rem;
+  position: fixed;
+  width: 100vw;
+  height: auto;
+  top: 50vh;
 }
 
-.my-menu {
-  padding: 2rem 2rem;
+.story-text {
+  position: fixed;
+  width: 100vw;
+  height: auto;
+  top: 10vh;
 }
 
 .my-choices {
