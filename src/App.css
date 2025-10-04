@@ -6,14 +6,14 @@
 
 @font-face {
   font-family: myCustomFont;
-  src: url(public/fonts/nightcore/nightcore_demo.ttf) format('truetype');
+  src: url('/fonts/nightcore/nightcore_demo.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: myCustomFont2;
-  src: url(public/fonts/haunted_hill/HauntedHillRegular-Regular.ttf) format('truetype');
+  src: url('/fonts/haunted_hill/HauntedHillRegular-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
